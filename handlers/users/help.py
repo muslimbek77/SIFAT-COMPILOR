@@ -6,9 +6,6 @@ from loader import dp
 
 @dp.message(Command('help'))
 async def bot_help(message: types.Message):
-    text = ("Buyruqlar: ",
-            "/start - Botni ishga tushirish",
-            "/help - Yordam",
-            "/test - Testni ishlab sertifikatni olish")
+    text = """Botdan foydalanish uchun python kodini botga yuboring va natijani oling, ushbu botda input() funksiyasi ishlamaydi,uning o'rniga ixtiyoriy qiymat kiritib kodingizni to'ldiring."""
     
-    await message.answer("\n".join(text))
+    await message.answer(text)

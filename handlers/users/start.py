@@ -15,6 +15,6 @@ async def start_command(message: types.Message):
 📍 Foydalanuvchining BIO-si: {user_info.bio}
 ➖➖➖➖➖➖➖➖➖➖➖
 🖐Jami: {db.count_users()[0]}""")
-        await message.answer(text="Assalomu alaykum, botdan foydalanish uchun python codini botga yuboring.")
+        await message.answer(text="Assalomu alaykum, botdan foydalanish uchun python kodini botga yuboring.")
     except:
-        await message.answer(text="Assalomu alaykum, botdan foydalanish uchun python codini botga yuboring.")
+        await message.answer(text="Assalomu alaykum, botdan foydalanish uchun python kodini botga yuboring.")
