@@ -11,9 +11,8 @@ async def sertificat(full_name):
     draw.text((1000-len(txt)*20, 600), txt, font=fnt, fill=(0, 0, 0))
 
     description = """
-    2024-yil 5-martdan 7-martga qadar "SUSYS-ACADEMY" ma'suliyati cheklangan jamiyati
-    "SIFAT" O'quv markazi tomonidan Navoiy shahrida tashkil etilgan "Elektron hukumat"
-    tizimini joriy etish bo' yicha o'quv kursini tamomladi
+        Ushbu sertifikat Zumar Education o'quv markazi tomonidan python dasturlash 
+            tilidan topshiriqlarni alo darajada yakunlaganingiz uchun berildi.
     """
     fnt2 = ImageFont.truetype("roboto2.ttf", 40)
     draw.text((200, 800), description, font=fnt2, fill=(0, 0, 0))

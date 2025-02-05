@@ -4,8 +4,8 @@ from aiogram import Bot, Dispatcher
 bot = Bot(token=BOT_TOKEN)
 async def on_startup_notify():
     for admin in ADMINS:
-        await bot.send_message(chat_id=-1002120980342,text="✅Bot ishga tushirildi")
+        await bot.send_message(chat_id=admin,text="✅Bot ishga tushirildi")
 
 async def on_shutdown_notify():
     for admin in ADMINS:
-        await bot.send_message(chat_id=-1002120980342, text="❌Bot to'xtatildi")
+        await bot.send_message(chat_id=admin, text="❌Bot to'xtatildi")

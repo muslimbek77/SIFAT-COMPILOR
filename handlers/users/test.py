@@ -7,6 +7,7 @@ from aiogram.fsm.context import FSMContext
 from keyboards.inline.test import *
 import asyncio, sys, logging, tracemalloc
 from .sertificat import *
+from data.config import ADMINS
 
 tracemalloc.start()
 correct_answers_count = 0
@@ -192,15 +193,15 @@ async def answer_question11(call: types.CallbackQuery, state: FSMContext):
 
     data = await state.get_data()
     name = data.get("name")
-    if correct_answers_count >= 8:
-        await call.message.answer(f"Tabriklaymiz, siz testni yakunladingiz!\nSizning natijangiz: {correct_answers_count//11*100}%")
+    if correct_answers_count >= 1:
+        await call.message.answer(f"Tabriklaymiz, siz testni yakunladingiz!\nSizning natijangiz: {correct_answers_count*100//11}%")
         photo = await sertificat(name)
         photo=types.input_file.BufferedInputFile(photo,filename="sertificate.png")
         await call.message.answer_photo(photo=photo)
-        await bot.send_message(chat_id=-1002120980342, text=f"""
+        await bot.send_message(chat_id=ADMINS[0], text=f"""
 🗞 Foydalanuvchi: {name}
-🔄 Natijasi: {correct_answers_count//11*100}""")
+🔄 Natijasi: {correct_answers_count*100//11}""")
         await state.clear()
     else:
-        await call.message.answer(f"Siz testni yakunlay olmadingiz!\nSizning natijangiz: {correct_answers_count//11*100}%")
+        await call.message.answer(f"Siz testni yakunlay olmadingiz!\nSizning natijangiz: {correct_answers_count*100//11}%")
         await state.clear()
