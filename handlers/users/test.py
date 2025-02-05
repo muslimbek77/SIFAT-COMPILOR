@@ -193,7 +193,7 @@ async def answer_question11(call: types.CallbackQuery, state: FSMContext):
 
     data = await state.get_data()
     name = data.get("name")
-    if correct_answers_count >= 1:
+    if correct_answers_count >= 8:
         await call.message.answer(f"Tabriklaymiz, siz testni yakunladingiz!\nSizning natijangiz: {correct_answers_count*100//11}%")
         photo = await sertificat(name)
         photo=types.input_file.BufferedInputFile(photo,filename="sertificate.png")
