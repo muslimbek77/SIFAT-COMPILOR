@@ -30,7 +30,7 @@ async def answer_fullname(message: types.Message, state: FSMContext):
 
     await state.update_data({"name": fullname})
 
-    msg = "0-savol\nPython asoschisi?"
+    msg = "1-savol\nPython asoschisi?"
     await message.answer(msg, reply_markup=question1)
     await state.set_state(TestStates.QUESTION_1)
     
@@ -39,7 +39,7 @@ async def answer_question1(call: types.CallbackQuery, state: FSMContext):
     global correct_answers_count
 
     await call.message.delete()
-    msg = "1-savol\nPython bu -"
+    msg = "2-savol\nPython bu -"
     await call.message.answer(msg, reply_markup=question2)
     if call.data == 'gvido_van_rosum':
         correct_answers_count += 1
@@ -51,7 +51,7 @@ async def answer_question2(call: types.CallbackQuery, state: FSMContext):
     global correct_answers_count
 
     await call.message.delete()
-    msg = "2-savol\nyield qanday tur hosil qilishda qo'llaniladi?"
+    msg = "3-savol\nyield qanday tur hosil qilishda qo'llaniladi?"
     await call.message.answer(msg, reply_markup=question3)
     if call.data == 'interpretatsion_til':
         correct_answers_count += 1
@@ -63,7 +63,7 @@ async def answer_question3(call: types.CallbackQuery, state: FSMContext):
     global correct_answers_count
 
     await call.message.delete()
-    msg = """3-savol\nfayl ochishda "w" rejimidan qanday maqsadda foydalaniladi?"""
+    msg = """4-savol\nfayl ochishda "w" rejimidan qanday maqsadda foydalaniladi?"""
     await call.message.answer(msg, reply_markup=question4)
     if call.data == 'generator':
         correct_answers_count += 1
@@ -75,7 +75,7 @@ async def answer_question4(call: types.CallbackQuery, state: FSMContext):
     global correct_answers_count
 
     await call.message.delete()
-    msg = """4-savol
+    msg = """5-savol
 quyidagi ifodadan keyin "a" ning qiymati qanday bo'ladi:
 a = [1, 2][1 > 2]"""
     await call.message.answer(msg, reply_markup=question5)
@@ -89,7 +89,7 @@ async def answer_question5(call: types.CallbackQuery, state: FSMContext):
     global correct_answers_count
 
     await call.message.delete()
-    msg = """5-savol
+    msg = """6-savol
 dastur natijasi qanday:
 
 silly_list=[i for i in range(2,9,2) if i%2]
@@ -106,7 +106,7 @@ async def answer_question6(call: types.CallbackQuery, state: FSMContext):
     global correct_answers_count
 
     await call.message.delete()
-    msg = "6-savol\nquyidagi dastur nechta qiymat chop etadi?"
+    msg = "7-savol\nquyidagi dastur nechta qiymat chop etadi?"
     msg +="""\nprint([x**2 for x in range(1, 11)])"""
     await call.message.answer(msg, reply_markup=question7)
 
@@ -120,7 +120,7 @@ async def answer_question7(call: types.CallbackQuery, state: FSMContext):
     global correct_answers_count
 
     await call.message.delete()
-    msg = """7-savol
+    msg = """8-savol
 dastur natijasi qanday?
 
 print("{1}{0}{1}".format("cad","abra"))"""
@@ -135,7 +135,7 @@ async def answer_question8(call: types.CallbackQuery, state: FSMContext):
     global correct_answers_count
 
     await call.message.delete()
-    msg = """8-savol
+    msg = """9-savol
 dastur natijasi qanday?
 
 def return_integer() -> int:
@@ -154,7 +154,7 @@ async def answer_question9(call: types.CallbackQuery, state: FSMContext):
     global correct_answers_count
 
     await call.message.delete()
-    msg = """9-savol
+    msg = """10-savol
 dastur nechta son chop etadi?
 
 nums = list(range(10))
@@ -172,7 +172,7 @@ async def answer_question10(call: types.CallbackQuery, state: FSMContext):
     global correct_answers_count
 
     await call.message.delete()
-    msg = """10-savol
+    msg = """11-savol
 dastur natijasi qanday?
 
 a,*b,c=1,2,3,4,5
@@ -200,7 +200,7 @@ async def answer_question11(call: types.CallbackQuery, state: FSMContext):
         await call.message.answer_photo(photo=photo)
         await bot.send_message(chat_id=ADMINS[0], text=f"""
 🗞 Foydalanuvchi: {name}
-🔄 Natijasi: {correct_answers_count*100//11}""")
+🔄 Natijasi: {correct_answers_count*100//11}%""")
         await state.clear()
     else:
         await call.message.answer(f"Siz testni yakunlay olmadingiz!\nSizning natijangiz: {correct_answers_count*100//11}%")
